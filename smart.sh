@@ -12,4 +12,4 @@ fi
 #If everything okay
 git add .
 	git commit "$i"
-git push $(git rev-parse --abbrev-ref HEAD)
+git push origin main
