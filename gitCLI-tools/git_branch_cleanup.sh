@@ -1,12 +1,20 @@
 #!/bin/bash
 set -euo pipefail
 
+<<<<<<< HEAD
 1lb () {
+=======
+lb () {
+>>>>>>> 7aeb3a3 (Still going, a few days to docker)
 	echo "Showing the local branches in your dir"
 		git branch 
 }
 
+<<<<<<< HEAD
 2dl () {
+=======
+dl () {
+>>>>>>> 7aeb3a3 (Still going, a few days to docker)
 	echo "Showing your merged branches"
 		git branch --merged 
 	read -p "What branch do you want to delete? > " branch
@@ -16,7 +24,11 @@ set -euo pipefail
 		echo "Your $branch were deleted"		
 }
 
+<<<<<<< HEAD
 3rm () {
+=======
+prune_cleaner () {
+>>>>>>> 7aeb3a3 (Still going, a few days to docker)
 	echo "Showing remote branches"
 		git branch -r
 	read -p "Do you want to clean remote branch? [y/n] > " opt
@@ -64,6 +76,7 @@ read -p "Choose the optiont > " opt
 case $opt in
 
 	1) 
+<<<<<<< HEAD
 		1lb "$@"
 		;;
 	2)
@@ -73,6 +86,17 @@ case $opt in
 	3)
 		3rm "$@"
 			trap 3rm SIGNIT
+=======
+		lb "$@"
+		;;
+	2)
+		dl "$@"
+			trap 2dl SIGINT
+		;;
+	3)
+		prune_cleaner "$@"
+			trap 3rm SIGINT
+>>>>>>> 7aeb3a3 (Still going, a few days to docker)
 		;;
 	4)
 		exit 0
