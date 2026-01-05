@@ -4,7 +4,9 @@ set -eou pipefail
 trap 'echo "Error at line $LINENO"; exit 1' ERR
 
 #Your image function
-source ./image.sh          
+source ./image.sh
+#Your container function
+source ./container.sh
 
 
 #Checking the loggin to the Docker hub
