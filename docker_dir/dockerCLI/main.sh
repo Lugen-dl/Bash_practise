@@ -42,7 +42,9 @@ read -p "Choose the option > " opt
       1) 
         image
         ;;
-      2) 
+      2)
+        container
+
 esac
     
   

@@ -2,6 +2,7 @@
 
 set -eou pipefail
 
+
 fl_err () {
     if [[ -n $(docker image ls $opt1 2>/dev/null) ]]; then
       echo "Image exists localy"
@@ -33,6 +34,7 @@ flag_ch () {
   fi
 }
 
+container () {
 cat <<EOF
   1. Run container with flags.
 EOF
@@ -86,4 +88,4 @@ case $opt in
     fi
         ;;
 esac
-
+}
