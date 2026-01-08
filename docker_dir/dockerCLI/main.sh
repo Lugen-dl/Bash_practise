@@ -44,6 +44,9 @@ read -p "Choose the option > " opt
         ;;
       2)
         container
+        ;;
+      3)
+        build
 
 esac
     
