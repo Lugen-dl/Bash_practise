@@ -12,12 +12,11 @@
 - Bash
 - Docker
 - Docker Hub account для аутентификации
-## **Запуск**
-./main.sh (скрипт автоматически делает файл исполняемым)
 ## **Установка и запуск**
 git clone https://github.com/Lugen-dl/Bash_practise.git
 
 cd Bash_practise/docker_dir/dockerCLI
 
-./main.sh
+./main.sh (скрипт автоматически делает файл исполняемым)
+
 
