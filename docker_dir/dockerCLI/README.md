@@ -16,6 +16,8 @@
 ./main.sh (скрипт автоматически делает файл исполняемым)
 ## **Установка и запуск**
 git clone https://github.com/Lugen-dl/Bash_practise.git
+
 cd Bash_practise/docker_dir/dockerCLI
+
 ./main.sh
 
