@@ -2,6 +2,8 @@
 
 set -eou pipefail
 trap 'echo "Error at line $LINENO"; exit 1' ERR
+#Making ./main.sh executable
+chmod +x image.sh container.sh build.sh 2>/dev/null
 
 #Your image function
 source ./image.sh
