@@ -1,0 +1,53 @@
+services:
+  react:
+    build:
+      context: ./react
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    networks:
+      - frontend-net
+    environment:
+      - REACT_URL=http://localhost:8000
+    depends_on:
+      - api
+  
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://user:pass@db:5432/dbname
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - backend-net
+    depends_on:
+      db:
+        condition: service_healthy
+      
+    db:
+      image: postgres:15-alpine
+      environment:
+        - POSTGRES_USER=user
+        - POSTGRES_PASSWORD=password
+        - POSTGRES_DB=mydb
+      networks:
+        - frontend-net
+        - backend-net
+      volumes:
+        - mydb:/var/lib/postgresql/data
+      
+networks:
+  frontend-net:
+  backend-net:
+
+volumes:
+  mydb:
+
+      
