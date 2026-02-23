@@ -7,8 +7,20 @@ on:
     branches: [main]
 
 jobs:
-  deploy:
-    runs-on: alpine:18
-
+  lint-docker:
+    runs-on: ubuntu-latest
     steps:
-      - name:  
+      - uses: actions/checkout@v4
+
+      - name: Verify Compose format
+        run: |
+          docker compose -f docker-compose.yml config -q
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'config'
+          hide-progress: true
+          exit-code: '1' 
+          severity: 'CRITICAL,HIGH'
+
